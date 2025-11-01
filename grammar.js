@@ -172,7 +172,7 @@ module.exports = grammar({
       seq(
         "for",
         "(",
-        repeat($.vdecl),
+        optional(seq($.vdecl, repeat(seq(",", $.vdecl)))),
         ";",
         optional($.exp),
         ";",
