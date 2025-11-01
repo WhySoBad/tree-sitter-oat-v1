@@ -50,14 +50,9 @@ module.exports = grammar({
     block: ($) => seq("{", repeat($.stmt), "}"),
 
     // types
-    type: ($) => choice($.primitive_type, $.ref_type, $.array_type),
+    type: ($) => choice($.primitive_type, $.ref_type),
     primitive_type: ($) => choice("int", "bool"),
-    ref_type: ($) => "string",
-    array_type: ($) =>
-      choice(
-        prec(100, seq(choice($.type, $.ref_type), "[]")),
-        prec(10, seq($.array_type, "[]")),
-      ),
+    ref_type: ($) => choice("string", seq($.type, "[]")),
 
     // function types
     ftype: ($) =>
@@ -205,8 +200,8 @@ module.exports = grammar({
     array_def: ($) =>
       seq(
         "new",
-        $.array_type,
-        "{",
+        $.type,
+        "[]{",
         optional(seq($.exp, repeat(seq(",", $.exp)))),
         "}",
       ),
@@ -215,8 +210,8 @@ module.exports = grammar({
     global_array_def: ($) =>
       seq(
         "new",
-        $.array_type,
-        "{",
+        $.type,
+        "[]{",
         optional(seq($.gexp, repeat(seq(",", $.gexp)))),
         "}",
       ),

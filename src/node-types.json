@@ -27,11 +27,11 @@
       "required": true,
       "types": [
         {
-          "type": "array_type",
+          "type": "exp",
           "named": true
         },
         {
-          "type": "exp",
+          "type": "type",
           "named": true
         }
       ]
@@ -66,29 +66,6 @@
       "types": [
         {
           "type": "exp",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "array_type",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "array_type",
-          "named": true
-        },
-        {
-          "type": "ref_type",
-          "named": true
-        },
-        {
-          "type": "type",
           "named": true
         }
       ]
@@ -404,11 +381,11 @@
       "required": true,
       "types": [
         {
-          "type": "array_type",
+          "type": "gexp",
           "named": true
         },
         {
-          "type": "gexp",
+          "type": "type",
           "named": true
         }
       ]
@@ -505,6 +482,21 @@
     }
   },
   {
+    "type": "ref_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "retty",
     "named": true,
     "fields": {},
@@ -581,10 +573,6 @@
       "multiple": false,
       "required": true,
       "types": [
-        {
-          "type": "array_type",
-          "named": true
-        },
         {
           "type": "primitive_type",
           "named": true
@@ -771,6 +759,10 @@
     "named": false
   },
   {
+    "type": "[]{",
+    "named": false
+  },
+  {
     "type": "[|]",
     "named": false
   },
@@ -828,11 +820,11 @@
     "named": false
   },
   {
-    "type": "ref_type",
-    "named": true
+    "type": "return",
+    "named": false
   },
   {
-    "type": "return",
+    "type": "string",
     "named": false
   },
   {

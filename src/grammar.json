@@ -182,10 +182,6 @@
         {
           "type": "SYMBOL",
           "name": "ref_type"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "array_type"
         }
       ]
     },
@@ -203,54 +199,24 @@
       ]
     },
     "ref_type": {
-      "type": "STRING",
-      "value": "string"
-    },
-    "array_type": {
       "type": "CHOICE",
       "members": [
         {
-          "type": "PREC",
-          "value": 100,
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "CHOICE",
-                "members": [
-                  {
-                    "type": "SYMBOL",
-                    "name": "type"
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "ref_type"
-                  }
-                ]
-              },
-              {
-                "type": "STRING",
-                "value": "[]"
-              }
-            ]
-          }
+          "type": "STRING",
+          "value": "string"
         },
         {
-          "type": "PREC",
-          "value": 10,
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "array_type"
-              },
-              {
-                "type": "STRING",
-                "value": "[]"
-              }
-            ]
-          }
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "type"
+            },
+            {
+              "type": "STRING",
+              "value": "[]"
+            }
+          ]
         }
       ]
     },
@@ -1118,11 +1084,11 @@
         },
         {
           "type": "SYMBOL",
-          "name": "array_type"
+          "name": "type"
         },
         {
           "type": "STRING",
-          "value": "{"
+          "value": "[]{"
         },
         {
           "type": "CHOICE",
@@ -1172,11 +1138,11 @@
         },
         {
           "type": "SYMBOL",
-          "name": "array_type"
+          "name": "type"
         },
         {
           "type": "STRING",
-          "value": "{"
+          "value": "[]{"
         },
         {
           "type": "CHOICE",
