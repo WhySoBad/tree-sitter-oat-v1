@@ -13,7 +13,7 @@ module.exports = grammar({
   word: ($) => $.identifier,
   rules: {
     // prog
-    prog: ($) => repeat(seq($.decl, "a")),
+    prog: ($) => repeat($.decl),
 
     // global declarations
     decl: ($) => choice($.gdecl, $.fdecl),
