@@ -15,6 +15,7 @@
   "true"
   "false"
   "struct"
+  "length"
 ] @keyword
 
 [

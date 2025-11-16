@@ -134,16 +134,18 @@ module.exports = grammar({
         $.identifier,
         $.int_literal,
         $.string_literal,
-        "null",
+        seq($.ref_type, "null"),
         "true",
         "false",
         $.array_index,
         $.array_def,
         $.array_def_init,
+        $.array_def_init_fn,
         $.struct_def,
         $.struct_index,
         $.bexp,
         $.uexp,
+        seq("length", "(", $.exp, ")"),
         seq("(", $.exp, ")"),
         "0",
       ),
@@ -264,7 +266,9 @@ module.exports = grammar({
       ),
 
     // array definition with default initializer
-    array_def_init: ($) => seq("new", $.primitive_type, "[", $.exp, "]"),
+    array_def_init: ($) => seq("new", $.type, "[", $.exp, "]"),
+    // array definition with default initializer function
+    array_def_init_fn: ($) => seq("new", $.type, "[", $.exp, "]", "{", field("variable", $.identifier), "->", field("initializer", $.exp), "}"),
 
     // struct field initializer
     struct_field_init: ($) =>

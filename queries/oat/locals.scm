@@ -24,6 +24,10 @@
 (vdecl_stmt
   name: (identifier) @local.definition)
 
+(array_def_init_fn
+  variable: (identifier) @local.definition
+  initializer: (exp) @local.scope)
+
 ;; -------------------------------------------------------------------
 ;; References
 ;; -------------------------------------------------------------------

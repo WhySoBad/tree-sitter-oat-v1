@@ -815,8 +815,17 @@
           "name": "string_literal"
         },
         {
-          "type": "STRING",
-          "value": "null"
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "ref_type"
+            },
+            {
+              "type": "STRING",
+              "value": "null"
+            }
+          ]
         },
         {
           "type": "STRING",
@@ -840,6 +849,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "array_def_init_fn"
+        },
+        {
+          "type": "SYMBOL",
           "name": "struct_def"
         },
         {
@@ -853,6 +866,27 @@
         {
           "type": "SYMBOL",
           "name": "uexp"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "length"
+            },
+            {
+              "type": "STRING",
+              "value": "("
+            },
+            {
+              "type": "SYMBOL",
+              "name": "exp"
+            },
+            {
+              "type": "STRING",
+              "value": ")"
+            }
+          ]
         },
         {
           "type": "SEQ",
@@ -1496,7 +1530,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "primitive_type"
+          "name": "type"
         },
         {
           "type": "STRING",
@@ -1509,6 +1543,59 @@
         {
           "type": "STRING",
           "value": "]"
+        }
+      ]
+    },
+    "array_def_init_fn": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "new"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "type"
+        },
+        {
+          "type": "STRING",
+          "value": "["
+        },
+        {
+          "type": "SYMBOL",
+          "name": "exp"
+        },
+        {
+          "type": "STRING",
+          "value": "]"
+        },
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "FIELD",
+          "name": "variable",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "->"
+        },
+        {
+          "type": "FIELD",
+          "name": "initializer",
+          "content": {
+            "type": "SYMBOL",
+            "name": "exp"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "}"
         }
       ]
     },
