@@ -62,6 +62,9 @@
 (call_exp
   name: (exp (identifier)) @function.call)
 
+(call_exp
+  name: (exp (struct_index (exp) (identifier) @function.call)))
+
 (params
   (arg
     (identifier) @variable.parameter))
@@ -83,11 +86,22 @@
 ;; Declarations
 ;; -------------------------------------------------------------------
 
-(gdecl name: (identifier) @variable.global)
+(gdecl
+  name: (identifier) @variable.global)
+
 (vdecl
   (identifier) @variable)
 
-(assign_stmt name: (lhs) @variable)
+(assign_stmt
+  name: (lhs) @variable)
+
+(struct_index
+  (exp)
+  (identifier) @property)
+
+(field
+  (type)
+  name: (identifier) @property)
 
 ;; -------------------------------------------------------------------
 ;; Misc
