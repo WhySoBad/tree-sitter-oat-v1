@@ -774,23 +774,6 @@
         }
       ]
     },
-    "lhs": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "identifier"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "struct_index"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "array_index"
-        }
-      ]
-    },
     "exp": {
       "type": "CHOICE",
       "members": [
@@ -973,7 +956,7 @@
           "name": "name",
           "content": {
             "type": "SYMBOL",
-            "name": "lhs"
+            "name": "exp"
           }
         },
         {

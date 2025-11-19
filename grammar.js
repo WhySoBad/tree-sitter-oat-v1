@@ -124,9 +124,6 @@ module.exports = grammar({
         $.identifier,
       ),
 
-    // lhs expressions
-    lhs: ($) => choice($.identifier, $.struct_index, $.array_index),
-
     // expressions
     exp: ($) =>
       choice(
@@ -167,7 +164,7 @@ module.exports = grammar({
 
     // assignment statement
     assign_stmt: ($) =>
-      seq(field("name", $.lhs), "=", field("expr", $.exp), ";"),
+      seq(field("name", $.exp), "=", field("expr", $.exp), ";"),
 
     // variable declaration statement
     vdecl_stmt: ($) =>

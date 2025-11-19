@@ -93,7 +93,7 @@
   (identifier) @variable)
 
 (assign_stmt
-  name: (lhs) @variable)
+  name: (exp) @variable)
 
 (struct_index
   (exp)
